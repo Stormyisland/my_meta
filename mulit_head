@@ -3,4 +3,11 @@ import torch.nn as nn
 import torch.nn.functional as F
 import math 
 
-class MulitHeadAttention(nn.Module)
+class MulitHeadAttention(nn.Module):
+   def __init__(self, d_model, num_heads):
+      super().__init__()
+      self_.d_model = d.model
+      self.num_heads =num_heads
+self.head_dim = d_model // mun_heads
+
+assert self.head_dim * num_heads == d_model, "d_model must be divisable by num_heads" 
