@@ -8,6 +8,16 @@ class MulitHeadAttention(nn.Module):
       super().__init__()
       self_.d_model = d.model
       self.num_heads =num_heads
-self.head_dim = d_model // mun_heads
+      self.head_dim = d_model // mun_heads
 
-assert self.head_dim * num_heads == d_model, "d_model must be divisable by num_heads" 
+      assert self.head_dim * num_heads == d_model, "d_model must be divisable by num_heads" 
+
+      self.wq = nn.Linear(d_model, d_model)
+      self.wk = nn.Linear(d_model, d_model)
+      self.wv = nn.Linaer(d_model, d_model)
+      self.wo = nn.Linear(d_mosel, d_model)
+
+   def Forward(self, q, k, v, mask = none):
+
+
+
