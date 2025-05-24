@@ -48,7 +48,10 @@ class PostionWiseFeedForward(nn.Module):
       self.fc2 = nn.Linear(d_ff, d_model)
       self.Dropout = dropout
 
-      (F.relu(self.fc1(x))))
+   def forward(self, x):
+      return self.fc2(self.dropout(F.relu(self.fc1(x))))
+
+         
 
    
        
