@@ -18,6 +18,13 @@ class MulitHeadAttention(nn.Module):
       self.wo = nn.Linear(d_mosel, d_model)
 
    def Forward(self, q, k, v, mask = none):
+       batch_size + q.size(0)
+       
+      # Linear projections 
+      q = self.wq(q) #(batch_size, seq_len, d_model)
+      k = self.wk(k) #(batc_size, seq_len, d_model)
+      v 
+       
 
 
 
