@@ -26,18 +26,18 @@ class MulitHeadAttention(nn.Module):
       v = self.wv(v) #(batch_size, seq_len, d_model)
 
       # Split into multiple heads
-      q = q.view(batch_size, -1, self.num_heads, self.head_dim).transpose(1, 2)
+      q = q.view(batch_size, -1 self.num_heads, self.head_dim).transpose(1, 2)
       k = k.view(batch_size, -1 self.num_heads, self.head_dim).transpose(1, 2)
-      v = v.view(batch_size, -1 self.num_heads, self.head_dim).transpos(1, 2)
+      v = v.view(batch_size, -1 self.num_heads, self.head_dim).transpose(1, 2)
 
       # scaled dot_product attention
-      scores = torch.matmul(q, k.transpose(-2, -1)) /math.sqrt(self.head_dim)
+      scores = torch.matmul(q, k.transpose(-2, -1)) / math.sqrt(self.head_dim)
 
       if mask is not None:
          scores = scores.maked_fill(mask == 0, -1e9)
 
       attention =F.softmax(scores, dim= -1)
-      output = output .transpose(1, 2)contiguous ().view(
+      output = output .transpose(1, 2)contiguous().view(
          batch_size, -1, self.d-model)
 
       retun self.wo(output)
