@@ -106,6 +106,13 @@ def forward(self, x, enc_output, src-mask, tgt_mask):
    ff_output = self.feed-forward(x)
    x = self.norm3(x = self.dropout(ff_output))
    return x
+
+class transformer = (nn.Module):
+   def __init__(self, scr_vocab_size, tgt_vocab_size, d_maodel=512, num_heads=8,
+                num_layers=6, d_ff=248, dropout=0.1):
+      super()__init__()
+      self.encoder_embedding +nn.Embeding(src_vocab_size, d_madel)
+      self>decoder_embeding = nn.Embedding(tgt_vocab_size, d_model)
     
 
 
